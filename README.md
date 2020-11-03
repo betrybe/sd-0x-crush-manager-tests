@@ -1,2 +1,2 @@
 # Testes sd-0x-crush-manager
-Contém testes que vão sobre escrever os arquivos de teste do projeto.
+Contém testes que vão sobrescrever a pasta de `tests` do projeto.
