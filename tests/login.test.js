@@ -2,7 +2,7 @@ const frisby = require('frisby');
 
 const url = 'http://localhost:3000';
 
-describe('1 - Crie o endpoint POST `/login`', () => {
+describe('3 - Crie o endpoint POST `/login`', () => {
   it('Será validado que o endpoint deve ser capaz de retornar um token aleatório de 16 caracteres que deverá ser utilizado nas demais requisições.', async () => {
     await frisby
       .post(`${url}/login`, {
