@@ -4,17 +4,17 @@ const path = require('path');
 
 const url = 'http://localhost:3000';
 
-describe('Crie o endpoint PUT `/crush/:id`', () => {
+describe('5 - Crie o endpoint PUT /crush/:id', () => {
   beforeEach(() => {
     const crushMock = fs.readFileSync(
       path.join(__dirname, 'seed.json'),
-      'utf8'
+      'utf8',
     );
 
     fs.writeFileSync(
       path.join(__dirname, '..', 'crush.json'),
       crushMock,
-      'utf8'
+      'utf8',
     );
   });
 
@@ -27,8 +27,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -60,8 +60,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -101,8 +101,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -135,8 +135,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -171,8 +171,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -205,8 +205,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -229,7 +229,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O "name" deve ter pelo menos 3 caracteres'
+              'O "name" deve ter pelo menos 3 caracteres',
             );
           });
       });
@@ -244,8 +244,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -278,8 +278,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -314,8 +314,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -348,8 +348,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -385,8 +385,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -419,8 +419,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -439,7 +439,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios'
+              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
             );
           });
       });
@@ -454,8 +454,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -488,8 +488,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -511,7 +511,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios'
+              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
             );
           });
       });
@@ -526,8 +526,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -560,8 +560,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -584,7 +584,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "rate" deve ser um inteiro de 1 à 5'
+              'O campo "rate" deve ser um inteiro de 1 à 5',
             );
           });
       });
@@ -599,8 +599,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -633,8 +633,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -657,7 +657,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "rate" deve ser um inteiro de 1 à 5'
+              'O campo "rate" deve ser um inteiro de 1 à 5',
             );
           });
       });
@@ -672,8 +672,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -706,8 +706,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -729,7 +729,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios'
+              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
             );
           });
       });
@@ -744,8 +744,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -778,8 +778,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -802,7 +802,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "datedAt" deve ter o formato "dd/mm/aaaa"'
+              'O campo "datedAt" deve ter o formato "dd/mm/aaaa"',
             );
           });
       });
@@ -817,8 +817,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -851,8 +851,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then(() => {
-        return frisby
+      .then(() =>
+        frisby
           .put(`${url}/crush/${resultCrush.id}`, {
             name: 'Zendaya',
             age: 25,
@@ -865,8 +865,7 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe('Token não encontrado');
-          });
-      });
+          }));
   });
 
   it('Será validado que não é possível editar um crush com token inválido', async () => {
@@ -878,8 +877,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -912,8 +911,8 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then(() => {
-        return frisby
+      .then(() =>
+        frisby
           .setup({
             request: {
               headers: {
@@ -934,7 +933,6 @@ describe('Crie o endpoint PUT `/crush/:id`', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe('Token inválido');
-          });
-      });
+          }));
   });
 });

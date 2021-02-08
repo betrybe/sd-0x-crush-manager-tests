@@ -11,14 +11,21 @@ const postCrushMock = {
 
 const url = 'http://localhost:3000';
 
-describe('4 - Crie o endpoint POST `/crush`', () => {
+describe('4 - Crie o endpoint POST /crush', () => {
   beforeEach(() => {
-    const crushSeed = fs.readFileSync(path.join(__dirname, 'seed.json'), 'utf8');
-  
-    fs.writeFileSync(path.join(__dirname, '..', 'crush.json'), crushSeed, 'utf8');
+    const crushSeed = fs.readFileSync(
+      path.join(__dirname, 'seed.json'),
+      'utf8',
+    );
+
+    fs.writeFileSync(
+      path.join(__dirname, '..', 'crush.json'),
+      crushSeed,
+      'utf8',
+    );
   });
+
   it('Será validado que é possível cadastrar um crush com sucesso', async () => {
-    console.log(`${url}/login`)
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -26,9 +33,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        console.log('a resposta foi',response)
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -47,7 +53,7 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .expect('status', 201)
           .then((responseCreate) => {
             const { json } = responseCreate;
-            return expect(json).toEqual(postCrushMock);
+            expect(json).toEqual(postCrushMock);
           });
       });
   });
@@ -60,8 +66,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -92,8 +98,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -113,7 +119,7 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe(
-              'O "name" deve ter pelo menos 3 caracteres'
+              'O "name" deve ter pelo menos 3 caracteres',
             );
           });
       });
@@ -127,8 +133,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -159,8 +165,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -192,8 +198,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -212,7 +218,7 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios'
+              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
             );
           });
       });
@@ -226,8 +232,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -247,7 +253,7 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios'
+              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
             );
           });
       });
@@ -261,8 +267,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -281,7 +287,9 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .expect('status', 400)
           .then((responseCreate) => {
             const { json } = responseCreate;
-            expect(json.message).toBe('O campo "rate" deve ser um inteiro de 1 à 5');
+            expect(json.message).toBe(
+              'O campo "rate" deve ser um inteiro de 1 à 5',
+            );
           });
       });
   });
@@ -294,8 +302,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -314,7 +322,9 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .expect('status', 400)
           .then((responseCreate) => {
             const { json } = responseCreate;
-            expect(json.message).toBe('O campo "rate" deve ser um inteiro de 1 à 5');
+            expect(json.message).toBe(
+              'O campo "rate" deve ser um inteiro de 1 à 5',
+            );
           });
       });
   });
@@ -327,8 +337,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -348,7 +358,7 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios'
+              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
             );
           });
       });
@@ -362,8 +372,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -383,13 +393,13 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe(
-              'O campo "datedAt" deve ter o formato "dd/mm/aaaa"'
+              'O campo "datedAt" deve ter o formato "dd/mm/aaaa"',
             );
           });
       });
   });
 
-  it('Será validado caso o token não seja encontrado retorne um código de status 401', async () => {
+  it('Será validado que não é possível cadastrar um crush sem estar autorizado', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -397,16 +407,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then((response) => {
-        const { body } = response;
-        return frisby
-          .setup({
-            request: {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            },
-          })
+      .then(() =>
+        frisby
           .post(`${url}/crush`, {
             name: 'Zendaya Maree',
             age: 17,
@@ -416,11 +418,10 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe('Token não encontrado');
-          });
-      });
+          }));
   });
 
-  it('Será validado que caso o token seja inválido retorne um código de status 401', async () => {
+  it('Será validado que não é possível cadastrar um crush com token inválido', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -428,8 +429,8 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           password: '12345678',
         },
       })
-      .then(() => {
-        return frisby
+      .then(() =>
+        frisby
           .setup({
             request: {
               headers: {
@@ -447,7 +448,6 @@ describe('4 - Crie o endpoint POST `/crush`', () => {
           .then((responseCreate) => {
             const { json } = responseCreate;
             expect(json.message).toBe('Token inválido');
-          });
-      });
+          }));
   });
 });
