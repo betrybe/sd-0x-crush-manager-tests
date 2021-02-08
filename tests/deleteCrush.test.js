@@ -4,12 +4,18 @@ const path = require('path');
 
 const url = 'http://localhost:3000';
 
-describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
-
+describe('6 - Crie o endpoint DELETE /crush/:id', () => {
   beforeEach(() => {
-    const crushSeed = fs.readFileSync(path.join(__dirname, 'seed.json'), 'utf8');
-  
-    fs.writeFileSync(path.join(__dirname, '..', 'crush.json'), crushSeed, 'utf8');
+    const crushSeed = fs.readFileSync(
+      path.join(__dirname, 'seed.json'),
+      'utf8',
+    );
+
+    fs.writeFileSync(
+      path.join(__dirname, '..', 'crush.json'),
+      crushSeed,
+      'utf8',
+    );
   });
 
   it('Será validado que é possível deletar um crush com sucesso', async () => {
@@ -21,8 +27,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -42,8 +48,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
             },
           })
           .expect('status', 201)
-          .then((responseRecipes) => {
-            const { body } = responseRecipes;
+          .then((responseCreate) => {
+            const { body } = responseCreate;
             resultCrush = JSON.parse(body);
           });
       });
@@ -54,8 +60,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -68,8 +74,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
           })
           .delete(`${url}/crush/${resultCrush.id}`)
           .expect('status', 200)
-          .then((responseLogin) => {
-            const { json } = responseLogin;
+          .then((responseDelete) => {
+            const { json } = responseDelete;
             expect(json.message).toBe('Crush deletado com sucesso');
           });
       });
@@ -84,8 +90,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -105,8 +111,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
             },
           })
           .expect('status', 201)
-          .then((responseRecipes) => {
-            const { body } = responseRecipes;
+          .then((responseCreate) => {
+            const { body } = responseCreate;
             resultCrush = JSON.parse(body);
           });
       });
@@ -118,8 +124,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
           password: '12345678',
         },
       })
-      .then(() => {
-        return frisby
+      .then(() =>
+        frisby
           .setup()
           .delete(`${url}/crush/${resultCrush.id}`, {
             name: 'Zendaya',
@@ -130,11 +136,10 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
             },
           })
           .expect('status', 401)
-          .then((responsePost) => {
-            const { json } = responsePost;
+          .then((responseDelete) => {
+            const { json } = responseDelete;
             expect(json.message).toBe('Token não encontrado');
-          });
-      });
+          }));
   });
 
   it('Será validado que não é possível deletar um crush com token inválido', async () => {
@@ -146,8 +151,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
         password: '12345678',
       })
       .expect('status', 200)
-      .then((response) => {
-        const { body } = response;
+      .then((responseLogin) => {
+        const { body } = responseLogin;
         const result = JSON.parse(body);
         return frisby
           .setup({
@@ -164,8 +169,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
             date: { datedAt: '23/10/2020', rate: 5 },
           })
           .expect('status', 201)
-          .then((responseRecipes) => {
-            const { body } = responseRecipes;
+          .then((responseCreate) => {
+            const { body } = responseCreate;
             resultCrush = JSON.parse(body);
           });
       });
@@ -181,8 +186,8 @@ describe('6 - Crie o endpoint DELETE `/crush/:id`', () => {
       })
       .delete(`${url}/crush/${resultCrush.id}`)
       .expect('status', 401)
-      .then((responsePost) => {
-        const { json } = responsePost;
+      .then((responseDelete) => {
+        const { json } = responseDelete;
         expect(json.message).toBe('Token inválido');
       });
   });
