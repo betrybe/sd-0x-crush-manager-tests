@@ -4,7 +4,7 @@ const path = require('path');
 
 const url = 'http://localhost:3000';
 
-describe('Crie o endpoint PUT `/crush/:id`', () => {
+describe('Crie o endpoint PUT /crush/:id', () => {
   beforeEach(() => {
     const crushMock = fs.readFileSync(
       path.join(__dirname, 'seed.json'),

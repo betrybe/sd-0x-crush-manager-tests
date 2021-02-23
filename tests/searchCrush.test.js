@@ -4,7 +4,7 @@ const path = require('path');
 
 const url = 'http://localhost:3000';
 
-describe('', () => {
+describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
   beforeEach(() => {
     const crushSeed = fs.readFileSync(
       path.join(__dirname, 'seed.json'),
