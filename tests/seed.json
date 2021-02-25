@@ -1,26 +1,38 @@
 [
   {
-    "name": "Madonna",
+    "name": "Henrique Albuquerque",
     "age": 62,
     "id": 1,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": {
+      "watchedAt": "23/10/2020",
+      "rate": 5
+    }
   },
   {
-    "name": "Cyndi Lauper",
+    "name": "Heloísa Albuquerque",
     "age": 67,
     "id": 2,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": {
+      "watchedAt": "23/10/2020",
+      "rate": 5
+    }
   },
   {
-    "name": "Kendrick Lamar",
+    "name": "Ricardo Xavier Filho",
     "age": 33,
     "id": 3,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": {
+      "watchedAt": "23/10/2020",
+      "rate": 5
+    }
   },
   {
-    "name": "Tom Holland",
+    "name": "Marcos Costa",
     "age": 24,
     "id": 4,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": {
+      "watchedAt": "23/10/2020",
+      "rate": 5
+    }
   }
 ]
