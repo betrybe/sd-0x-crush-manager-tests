@@ -16,6 +16,13 @@ describe('6 - Crie o endpoint DELETE /talker/:id', () => {
       talkerSeed,
       'utf8'
     );
+    afterAll(() =>{
+      fs.writeFileSync(
+        path.join(__dirname, '..', 'talker.json'),
+        talkerSeed,
+        'utf8',
+      );
+    })
   });
 
   it('Será validado que é possível deletar uma pessoa palestrante com sucesso', async () => {
@@ -75,6 +82,11 @@ describe('6 - Crie o endpoint DELETE /talker/:id', () => {
           .delete(`${url}/talker/${resultTalker.id}`)
           .expect('status', 200)
           .then((responseDelete) => {
+            expect(require('../talker.json')).not.toEqual(
+              expect.arrayContaining(
+                [expect.objectContaining({ id: resultTalker.id})]
+                )
+              );
             const { json } = responseDelete;
             expect(json.message).toBe(
               'Pessoa palestrante deletada com sucesso'
