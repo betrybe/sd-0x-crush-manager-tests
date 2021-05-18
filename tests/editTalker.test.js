@@ -82,7 +82,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
           })
           .expect('status', 200)
           .then((responseUpdate) => {
-            expect(require('../crush.json')).toEqual(
+            expect(require('../talker.json')).toEqual(
               expect.arrayContaining(
                 [expect.objectContaining({
                   id: resultTalker.id,
